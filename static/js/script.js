@@ -93,9 +93,9 @@ if (typingText) {
 // Note: EmailJS will use your Gmail App Password internally
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    // Initialize EmailJS - Replace with your Public Key from EmailJS dashboard
+    // Initialize EmailJS with Public Key
     if (typeof emailjs !== 'undefined') {
-        emailjs.init("YOUR_PUBLIC_KEY");
+        emailjs.init("wX5S3NBK5ywK-vDFk");
     }
     
     contactForm.addEventListener('submit', async (e) => {
@@ -137,10 +137,10 @@ if (contactForm) {
             // - Template ID: Email template ID from EmailJS  
             // - Public Key: Your EmailJS public key
             await emailjs.send(
-                'YOUR_SERVICE_ID',      // Replace with your Gmail Service ID
-                'YOUR_TEMPLATE_ID',     // Replace with your Template ID
+                'service_h4rpj79',      // Gmail Service ID
+                'template_ca6669s',     // Email Template ID
                 templateParams,
-                'YOUR_PUBLIC_KEY'       // Replace with your Public Key
+                'wX5S3NBK5ywK-vDFk'    // EmailJS Public Key
             );
             
             formMessage.textContent = 'Thank you! Your message has been sent successfully.';
