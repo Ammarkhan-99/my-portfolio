@@ -89,10 +89,13 @@ if (typingText) {
     setTimeout(typeEffect, 1000);
 }
 
-// Form submission for GitHub Pages (using mailto)
+// Form submission using Formspree (simple and secure)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    // Replace YOUR_FORM_ID with your actual Formspree form ID
+    const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+    
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const formMessage = document.getElementById('form-message');
@@ -101,7 +104,7 @@ if (contactForm) {
         
         // Disable button and show loading
         submitButton.disabled = true;
-        submitButton.textContent = 'Opening Email...';
+        submitButton.textContent = 'Sending...';
         formMessage.textContent = '';
         formMessage.className = 'form-message';
         
@@ -110,22 +113,47 @@ if (contactForm) {
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
         
-        // Create mailto link
-        const subject = encodeURIComponent('Portfolio Contact Form - Message from ' + name);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:ammaroofficial99@gmail.com?subject=${subject}&body=${body}`;
+        // Prepare form data for Formspree
+        const formData = {
+            name: name,
+            email: email,
+            message: message,
+            _replyto: email,
+            _subject: 'Portfolio Contact Form - Message from ' + name
+        };
         
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Show success message
-        setTimeout(() => {
-            formMessage.textContent = 'Email client opened! Please send the message from there.';
-            formMessage.className = 'form-message success';
-            contactForm.reset();
+        try {
+            const response = await fetch(formspreeEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                formMessage.className = 'form-message success';
+                contactForm.reset();
+            } else {
+                // Handle Formspree errors
+                if (data.error) {
+                    throw new Error(data.error);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            }
+        } catch (error) {
+            console.error('Form Error:', error);
+            formMessage.textContent = 'Error sending message. Please try again or contact me directly at ammaroofficial99@gmail.com';
+            formMessage.className = 'form-message error';
+        } finally {
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
-        }, 1000);
+        }
     });
 }
 
