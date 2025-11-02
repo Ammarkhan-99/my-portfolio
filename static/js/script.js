@@ -89,10 +89,16 @@ if (typingText) {
     setTimeout(typeEffect, 1000);
 }
 
-// Form submission - Direct email using mailto
+// Form submission using EmailJS (Gmail service)
+// Note: EmailJS will use your Gmail App Password internally
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    // Initialize EmailJS - Replace with your Public Key from EmailJS dashboard
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("YOUR_PUBLIC_KEY");
+    }
+    
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const formMessage = document.getElementById('form-message');
@@ -101,7 +107,7 @@ if (contactForm) {
         
         // Disable button and show loading
         submitButton.disabled = true;
-        submitButton.textContent = 'Opening Email...';
+        submitButton.textContent = 'Sending...';
         formMessage.textContent = '';
         formMessage.className = 'form-message';
         
@@ -110,22 +116,44 @@ if (contactForm) {
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
         
-        // Create mailto link
-        const subject = encodeURIComponent('Portfolio Contact Form - Message from ' + name);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-        const mailtoLink = `mailto:ammaroofficial99@gmail.com?subject=${subject}&body=${body}`;
+        // EmailJS template parameters (same format as Flask backend)
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            message: message,
+            to_email: 'ammaroofficial99@gmail.com',
+            subject: 'Portfolio Contact Form - Message from ' + name,
+            reply_to: email
+        };
         
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Show success message
-        setTimeout(() => {
-            formMessage.textContent = 'Email client opened! Please send the message from there.';
+        try {
+            if (typeof emailjs === 'undefined') {
+                throw new Error('EmailJS not loaded. Please check setup.');
+            }
+            
+            // Send email using EmailJS
+            // Replace these with your actual IDs from EmailJS dashboard:
+            // - Service ID: Gmail service ID from EmailJS
+            // - Template ID: Email template ID from EmailJS  
+            // - Public Key: Your EmailJS public key
+            await emailjs.send(
+                'YOUR_SERVICE_ID',      // Replace with your Gmail Service ID
+                'YOUR_TEMPLATE_ID',     // Replace with your Template ID
+                templateParams,
+                'YOUR_PUBLIC_KEY'       // Replace with your Public Key
+            );
+            
+            formMessage.textContent = 'Thank you! Your message has been sent successfully.';
             formMessage.className = 'form-message success';
             contactForm.reset();
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            formMessage.textContent = 'Error sending message. Please try again or contact me directly at ammaroofficial99@gmail.com';
+            formMessage.className = 'form-message error';
+        } finally {
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
-        }, 500);
+        }
     });
 }
 

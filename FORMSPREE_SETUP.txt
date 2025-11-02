@@ -1,0 +1,15 @@
+FORMSPREE SETUP (5 MINUTES):
+
+1. Go to: https://formspree.io/
+2. Click "Get Started for Free"
+3. Sign up with email
+4. Click "New Form"
+5. Set Email: ammaroofficial99@gmail.com
+6. Click "Create Form"
+7. Copy your Form ID (from URL: https://formspree.io/f/YOUR_ID)
+8. Give me the Form ID and I will update the code!
+
+OR
+
+Send me your Form ID and I'll update it right now!
+
