@@ -89,10 +89,10 @@ if (typingText) {
     setTimeout(typeEffect, 1000);
 }
 
-// Form submission
+// Form submission for GitHub Pages (using mailto)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         const formMessage = document.getElementById('form-message');
@@ -101,43 +101,31 @@ if (contactForm) {
         
         // Disable button and show loading
         submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
+        submitButton.textContent = 'Opening Email...';
         formMessage.textContent = '';
         formMessage.className = 'form-message';
         
         // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
         
-        try {
-            const response = await fetch('/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-            
-            const data = await response.json();
-            
-            if (data.success) {
-                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
-                formMessage.className = 'form-message success';
-                contactForm.reset();
-            } else {
-                formMessage.textContent = data.message || 'Error sending message. Please try again.';
-                formMessage.className = 'form-message error';
-            }
-        } catch (error) {
-            formMessage.textContent = 'Error sending message. Please try again later.';
-            formMessage.className = 'form-message error';
-        } finally {
+        // Create mailto link
+        const subject = encodeURIComponent('Portfolio Contact Form - Message from ' + name);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        const mailtoLink = `mailto:ammaroofficial99@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Show success message
+        setTimeout(() => {
+            formMessage.textContent = 'Email client opened! Please send the message from there.';
+            formMessage.className = 'form-message success';
+            contactForm.reset();
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
-        }
+        }, 1000);
     });
 }
 
@@ -164,4 +152,3 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
     item.style.transition = 'all 0.6s ease';
     observer.observe(item);
 });
-

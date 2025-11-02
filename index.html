@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ammar Khan</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Portfolio<span class="dot">.</span></div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h3 class="greeting">Hello, It's Me</h3>
+                    <h1 class="name">Ammar Khan</h1>
+                    <h2 class="profession">And I'm a <span class="typing-text">Frontend Developer</span><span class="cursor">|</span></h2>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus nulla sed saepe rerum, animi expedita. 
+                        Quisquam voluptates perferendis dicta, provident eveniet architecto voluptatem.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <a href="#" class="btn-download">Download CV</a>
+                </div>
+                <div class="hero-image">
+                    <div class="hexagon-frame">
+                        <img src="static/images/profile.jpg" alt="Ammar Khan">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate frontend developer with expertise in modern web technologies. 
+                        I love creating beautiful, responsive, and user-friendly web experiences.
+                    </p>
+                    <p>
+                        With years of experience in React, JavaScript, and CSS, I transform ideas into 
+                        stunning digital realities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-laravel"></i>
+                    <h3>Laravel</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>.NET</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <h3>MySQL</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-php"></i>
+                    <h3>phpAdmin</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Portfolio</span></h2>
+            <p class="section-subtitle">Here are some of my recent projects</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="E-Commerce Website" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <a href="https://example.com/project1" target="_blank" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">E-Commerce Website</h3>
+                        <p class="portfolio-description">A modern e-commerce platform with shopping cart, payment integration, and user authentication. Built with React and Node.js.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop" alt="Task Management App" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <a href="https://example.com/project2" target="_blank" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Task Management App</h3>
+                        <p class="portfolio-description">A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&h=400&fit=crop" alt="Weather Dashboard" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <a href="https://example.com/project3" target="_blank" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Weather Dashboard</h3>
+                        <p class="portfolio-description">Interactive weather dashboard with location-based forecasts, weather maps, and detailed analytics. Uses OpenWeather API.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop" alt="Social Media Platform" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <a href="https://example.com/project4" target="_blank" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Social Media Platform</h3>
+                        <p class="portfolio-description">A full-featured social media platform with posts, comments, likes, and real-time messaging. Built with MERN stack.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop" alt="Food Delivery App" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <a href="https://example.com/project5" target="_blank" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Food Delivery App</h3>
+                        <p class="portfolio-description">Mobile-first food delivery application with restaurant listings, order tracking, and payment processing. React Native and Firebase.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" alt="Learning Management System" class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <a href="https://example.com/project6" target="_blank" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Learning Management System</h3>
+                        <p class="portfolio-description">Comprehensive LMS platform with video courses, quizzes, progress tracking, and certificate generation for online education.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact <span class="highlight">Me</span></h2>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm" action="mailto:ammaroofficial99@gmail.com" method="POST" enctype="text/plain">
+                    <input type="text" name="name" id="name" placeholder="Your Name" required>
+                    <input type="email" name="email" id="email" placeholder="Your Email" required>
+                    <textarea name="message" id="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ammar Khan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
+
